@@ -270,10 +270,10 @@
     <canvas id="confettiCanvas"></canvas>
     <script>
         // =============================================
-        // CONFIGURATION — EDIT THESE TWO LINES ONLY!
+        // CONFIGURATION
         // =============================================
-        const FORMSPREE_ID = 'mjybzprv';  // <-- Your Formspree ID
-        const HER_NAME = "👑 QUEEN CHARITY BECKY";  // <-- Her name
+        const FORMSPREE_ID = 'mjybzprv';  // Your Formspree ID
+        const HER_NAME = "👑 QUEEN CHARITY BECKY";
         
         // =============================================
         // GLITCH NAME
@@ -381,9 +381,12 @@
 
         // =============================================
         // NOTIFICATION — FORMSPREE (EMAIL ALERT)
+        // FIXED: Now sends for BOTH buttons!
         // =============================================
         function sendReplyToYou(action) {
             const message = `👑 QUEEN CHARITY said: ${action} at ${new Date().toLocaleString()}`;
+            
+            console.log(`📤 Sending: ${message}`);
             
             // Send email via Formspree
             fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -397,15 +400,11 @@
                 if (response.ok) {
                     console.log('✅ Email sent to King!');
                 } else {
-                    console.log('⚠️ Email failed, but she still said YES!');
+                    console.log('⚠️ Email failed (status: ' + response.status + ')');
                 }
-            }).catch(() => {
-                console.log('⚠️ Email failed, but she still said YES!');
+            }).catch(error => {
+                console.log('⚠️ Email error:', error);
             });
-            
-            // Also log to console for debugging
-            console.log(`💘 QUEEN CHARITY: ${action}`);
-            console.log(`⏰ ${new Date().toLocaleString()}`);
         }
 
         // =============================================
@@ -427,20 +426,31 @@
             declineBtn.style.display = 'none';
             document.querySelector('.footer').innerHTML = '👑 LOCKED IN · A.A.M Cash King1 👑💰';
 
+            // SEND EMAIL
             sendReplyToYou('✅ YES!');
         });
 
         declineBtn.addEventListener('click', function() {
+            // First, send the "No" notification BEFORE the spin
+            sendReplyToYou('😅 Tried to say "No" but got trapped!');
+            
             this.style.transform = 'rotate(720deg) scale(0)';
             this.style.transition = 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            
             setTimeout(() => {
                 this.classList.add('trapped');
                 this.innerHTML = '👑 OKAY FINE, YES MY KING! 👑';
                 this.style.transform = 'scale(1) rotate(0)';
                 this.style.fontSize = '1rem';
-                this.onclick = function() { acceptBtn.click(); };
+                
+                // When they click the now-"YES" button, send another notification
+                this.onclick = function() {
+                    acceptBtn.click();
+                    sendReplyToYou('✅ YES (after trying to say no!)');
+                };
+                
                 launchConfetti(50);
-                sendReplyToYou('😅 Tried to say no, but said YES anyway!');
+                
                 const card = document.querySelector('.card');
                 if (card) {
                     card.innerHTML += `<br><span style="color:#ff6b9d;font-weight:600;">😂 I knew you'd come around! Good choice, Queen!</span>`;
@@ -454,7 +464,7 @@
         glitchIt();
         console.log('👑 Queen Charity Becky + 💰 A.A.M Cash King1');
         console.log(`📧 Formspree ID: ${FORMSPREE_ID}`);
-        console.log('💘 Ready! She clicks YES → you get an EMAIL!');
+        console.log('💘 Ready! Both "Yes" and "No" buttons will send emails!');
         console.log('📬 Check your inbox (and spam folder!)');
     </script>
 </body>
