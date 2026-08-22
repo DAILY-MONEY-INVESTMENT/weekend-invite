@@ -16,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-family: -apple-system, 'Segoe UI', Roboto, system-ui, sans-serif;
+            font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
             padding: 16px;
             overflow-x: hidden;
         }
@@ -215,7 +215,6 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.3); }
         }
-        /* Make sure buttons stay above confetti */
         .btn-group, .btn, #details, .footer {
             position: relative;
             z-index: 20;
@@ -270,9 +269,16 @@
     </div>
     <canvas id="confettiCanvas"></canvas>
     <script>
+        // =============================================
+        // CONFIGURATION — EDIT THESE TWO LINES ONLY!
+        // =============================================
+        const FORMSPREE_ID = 'mjybzprv';  // <-- Your Formspree ID
+        const HER_NAME = "👑 QUEEN CHARITY BECKY";  // <-- Her name
+        
+        // =============================================
         // GLITCH NAME
+        // =============================================
         const glitchEl = document.getElementById('glitchName');
-        const herName = "👑 QUEEN CHARITY BECKY";
         const symbols = ["✨", "💫", "🌟", "⭐", "👑", "🌹", "💰"];
         let glitchTimer;
 
@@ -280,20 +286,22 @@
             let step = 0;
             clearInterval(glitchTimer);
             glitchTimer = setInterval(() => {
-                let display = herName.split('').map((ch, i) => {
+                let display = HER_NAME.split('').map((ch, i) => {
                     if (i < step) return ch;
                     return symbols[Math.floor(Math.random() * symbols.length)];
                 }).join('');
                 glitchEl.innerHTML = display || '💫';
-                if (step >= herName.length) {
+                if (step >= HER_NAME.length) {
                     clearInterval(glitchTimer);
-                    glitchEl.innerHTML = `<span class="crown-badge">👑</span> QUEEN CHARITY BECKY`;
+                    glitchEl.innerHTML = `<span class="crown-badge">👑</span> ${HER_NAME}`;
                 }
                 step += 0.6;
             }, 70);
         }
 
-        // CONFETTI — SMALLER, LESS BLOCKING
+        // =============================================
+        // CONFETTI
+        // =============================================
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
         let W = window.innerWidth,
@@ -354,8 +362,7 @@
             }
             if (!confettiRunning) {
                 confettiRunning = true;
-
-                function loop() {
+                (function loop() {
                     ctx.clearRect(0, 0, W, H);
                     let active = false;
                     for (let p of particles) {
@@ -363,32 +370,47 @@
                         p.draw();
                         if (p.y < H + 50) active = true;
                     }
-                    // Stop after 5 seconds of inactivity
                     if (active || particles.length > 0) {
                         requestAnimationFrame(loop);
                     } else {
                         confettiRunning = false;
                     }
-                }
-                loop();
+                })();
             }
         }
 
-        // NOTIFICATION — IMAGE TRICK
+        // =============================================
+        // NOTIFICATION — FORMSPREE (EMAIL ALERT)
+        // =============================================
         function sendReplyToYou(action) {
-            const message = `👑 QUEEN CHARITY said: ${action} at ${new Date().toLocaleTimeString()}`;
-            const topic = 'queen-charity-invite';
-
-            const img = new Image();
-            img.src = `https://ntfy.sh/${topic}?message=${encodeURIComponent(message)}`;
-            img.style.display = 'none';
-            document.body.appendChild(img);
-
+            const message = `👑 QUEEN CHARITY said: ${action} at ${new Date().toLocaleString()}`;
+            
+            // Send email via Formspree
+            fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    message: message,
+                    _subject: '👑 QUEEN REPLIED!'
+                })
+            }).then(response => {
+                if (response.ok) {
+                    console.log('✅ Email sent to King!');
+                } else {
+                    console.log('⚠️ Email failed, but she still said YES!');
+                }
+            }).catch(() => {
+                console.log('⚠️ Email failed, but she still said YES!');
+            });
+            
+            // Also log to console for debugging
             console.log(`💘 QUEEN CHARITY: ${action}`);
             console.log(`⏰ ${new Date().toLocaleString()}`);
         }
 
+        // =============================================
         // BUTTONS
+        // =============================================
         const acceptBtn = document.getElementById('acceptBtn');
         const declineBtn = document.getElementById('declineBtn');
         const details = document.getElementById('details');
@@ -409,7 +431,6 @@
         });
 
         declineBtn.addEventListener('click', function() {
-            // Playful spin + trap
             this.style.transform = 'rotate(720deg) scale(0)';
             this.style.transition = 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
             setTimeout(() => {
@@ -417,12 +438,9 @@
                 this.innerHTML = '👑 OKAY FINE, YES MY KING! 👑';
                 this.style.transform = 'scale(1) rotate(0)';
                 this.style.fontSize = '1rem';
-                this.onclick = function() {
-                    acceptBtn.click();
-                };
+                this.onclick = function() { acceptBtn.click(); };
                 launchConfetti(50);
                 sendReplyToYou('😅 Tried to say no, but said YES anyway!');
-                // Add a playful message on the card
                 const card = document.querySelector('.card');
                 if (card) {
                     card.innerHTML += `<br><span style="color:#ff6b9d;font-weight:600;">😂 I knew you'd come around! Good choice, Queen!</span>`;
@@ -430,10 +448,14 @@
             }, 700);
         });
 
+        // =============================================
+        // START
+        // =============================================
         glitchIt();
         console.log('👑 Queen Charity Becky + 💰 A.A.M Cash King1');
-        console.log('📱 ntfy topic: queen-charity-invite');
-        console.log('💘 Using IMAGE TRICK — 100% works!');
+        console.log(`📧 Formspree ID: ${FORMSPREE_ID}`);
+        console.log('💘 Ready! She clicks YES → you get an EMAIL!');
+        console.log('📬 Check your inbox (and spam folder!)');
     </script>
 </body>
 </html>
