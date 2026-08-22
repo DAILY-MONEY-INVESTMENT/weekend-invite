@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>👑 King + Queen = This Weekend</title>
+    <title>👑 King + QUEEN NANA = This Weekend</title>
     <style>
         * {
             margin: 0;
@@ -243,7 +243,7 @@
             <span>👑</span><span>🌹</span><span>🎮</span><span>🍕</span><span>🎬</span><span>💫</span><span>💰</span>
         </div>
         <div class="question">
-            <span class="highlight">❝ Yo <span class="queen-highlight">Queen👑 NANA</span>!</span><br>
+            <span class="highlight">❝ Yo <span class="queen-highlight">QUEEN NANA</span>!</span><br>
             Saturday's looking dead without you 💀<br>
             <span class="highlight">Pizza + Mario Kart + your laugh</span> = 🔥<br>
             <span class="joke-line">⚠️ Warning: I might let you win... or not 😏</span><br>
@@ -255,11 +255,11 @@
         </div>
         <div id="details">
             <div class="card">
-                <span>📅</span> Sunday · 5pm sharp (don't be late 👀)<br>
+                <span>📅</span> Saturday · 7pm sharp (don't be late 👀)<br>
                 <span>📍</span> My place — I'll send the pin 🗺️<br>
                 <span>🍕</span> Your fave pizza (already ordered in my head)<br>
                 <span>🎮</span> Mario Kart — I'm going easy on you... maybe<br>
-                <span>👑</span> <span class="queen-name">Queen👑 NANA</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br>
+                <span>👑</span> <span class="queen-name">QUEEN NANA</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br>
                 <span class="flirty-text">💋 Just bring yourself and that smile — that's all I need</span>
             </div>
         </div>
@@ -274,6 +274,7 @@
         // =============================================
         const FORMSPREE_ID = 'mjybzprv';  // Your Formspree ID
         const HER_NAME = "👑 QUEEN NANA";
+        const YOUR_NAME = "A.A.M Cash King1";
         
         // =============================================
         // GLITCH NAME
@@ -381,20 +382,18 @@
 
         // =============================================
         // NOTIFICATION — FORMSPREE (EMAIL ALERT)
-        // FIXED: Now sends for BOTH buttons!
         // =============================================
         function sendReplyToYou(action) {
             const message = `👑 QUEEN NANA said: ${action} at ${new Date().toLocaleString()}`;
             
             console.log(`📤 Sending: ${message}`);
             
-            // Send email via Formspree
             fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     message: message,
-                    _subject: '👑 QUEEN REPLIED!'
+                    _subject: '👑 QUEEN NANA REPLIED!'
                 })
             }).then(response => {
                 if (response.ok) {
@@ -420,18 +419,16 @@
             setTimeout(() => launchConfetti(80), 500);
             setTimeout(() => launchConfetti(60), 1000);
 
-            this.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN! 👑';
+            this.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN NANA! 👑';
             this.style.background = 'linear-gradient(135deg, #ffd700, #ff8844)';
             this.style.boxShadow = '0 8px 40px rgba(255, 215, 0, 0.5)';
             declineBtn.style.display = 'none';
-            document.querySelector('.footer').innerHTML = '👑 LOCKED IN · A.A.M Cash King1 👑💰';
+            document.querySelector('.footer').innerHTML = `👑 LOCKED IN · ${YOUR_NAME} 👑💰`;
 
-            // SEND EMAIL
             sendReplyToYou('✅ YES!');
         });
 
         declineBtn.addEventListener('click', function() {
-            // First, send the "No" notification BEFORE the spin
             sendReplyToYou('😅 Tried to say "No" but got trapped!');
             
             this.style.transform = 'rotate(720deg) scale(0)';
@@ -443,7 +440,6 @@
                 this.style.transform = 'scale(1) rotate(0)';
                 this.style.fontSize = '1rem';
                 
-                // When they click the now-"YES" button, send another notification
                 this.onclick = function() {
                     acceptBtn.click();
                     sendReplyToYou('✅ YES (after trying to say no!)');
@@ -453,7 +449,7 @@
                 
                 const card = document.querySelector('.card');
                 if (card) {
-                    card.innerHTML += `<br><span style="color:#ff6b9d;font-weight:600;">😂 I knew you'd come around! Good choice, Queen!</span>`;
+                    card.innerHTML += `<br><span style="color:#ff6b9d;font-weight:600;">😂 I knew you'd come around! Good choice, Queen Nana!</span>`;
                 }
             }, 700);
         });
@@ -462,7 +458,7 @@
         // START
         // =============================================
         glitchIt();
-        console.log('👑 Queen NANA + 💰 A.A.M Cash King1');
+        console.log(`👑 QUEEN NANA + 💰 ${YOUR_NAME}`);
         console.log(`📧 Formspree ID: ${FORMSPREE_ID}`);
         console.log('💘 Ready! Both "Yes" and "No" buttons will send emails!');
         console.log('📬 Check your inbox (and spam folder!)');
