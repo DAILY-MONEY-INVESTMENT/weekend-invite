@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>👑 Queen Charity + A.A.M Cash King1</title>
+    <title>👑 King + Queen = This Weekend</title>
     <style>
         * {
             margin: 0;
@@ -18,15 +18,19 @@
             align-items: center;
             font-family: -apple-system, 'Segoe UI', Roboto, system-ui, sans-serif;
             padding: 16px;
+            overflow-x: hidden;
         }
         .container {
-            background: rgba(20, 16, 40, 0.88);
+            background: rgba(20, 16, 40, 0.92);
             padding: 2rem 1.5rem;
             border-radius: 40px;
-            border: 1.5px solid rgba(255, 215, 0, 0.3);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.1);
             text-align: center;
             max-width: 480px;
             width: 100%;
+            position: relative;
+            z-index: 10;
         }
         .glitch-wrap {
             font-size: 2rem;
@@ -53,26 +57,26 @@
             50% { transform: translateY(-6px) rotate(2deg); }
         }
         .emoji-storm {
-            font-size: 2.4rem;
+            font-size: 2rem;
             display: flex;
             justify-content: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
             flex-wrap: wrap;
-            margin: 0.3rem 0 0.8rem;
+            margin: 0.2rem 0 0.6rem;
         }
         .emoji-storm span {
             display: inline-block;
-            animation: pop 1s ease-out forwards;
+            animation: pop 0.8s ease-out forwards;
             opacity: 0;
             transform: scale(0);
         }
-        .emoji-storm span:nth-child(1) { animation-delay: 0.1s; }
-        .emoji-storm span:nth-child(2) { animation-delay: 0.25s; }
-        .emoji-storm span:nth-child(3) { animation-delay: 0.4s; }
-        .emoji-storm span:nth-child(4) { animation-delay: 0.55s; }
-        .emoji-storm span:nth-child(5) { animation-delay: 0.7s; }
-        .emoji-storm span:nth-child(6) { animation-delay: 0.85s; }
-        .emoji-storm span:nth-child(7) { animation-delay: 1.0s; }
+        .emoji-storm span:nth-child(1) { animation-delay: 0.05s; }
+        .emoji-storm span:nth-child(2) { animation-delay: 0.15s; }
+        .emoji-storm span:nth-child(3) { animation-delay: 0.25s; }
+        .emoji-storm span:nth-child(4) { animation-delay: 0.35s; }
+        .emoji-storm span:nth-child(5) { animation-delay: 0.45s; }
+        .emoji-storm span:nth-child(6) { animation-delay: 0.55s; }
+        .emoji-storm span:nth-child(7) { animation-delay: 0.65s; }
         @keyframes pop {
             0% { opacity: 0; transform: scale(0) rotate(-20deg); }
             60% { opacity: 1; transform: scale(1.2) rotate(5deg); }
@@ -80,11 +84,11 @@
         }
         .question {
             color: #c8c0e0;
-            font-size: 1.15rem;
-            margin: 1rem 0 1.6rem;
-            line-height: 1.7;
+            font-size: 1.1rem;
+            margin: 0.8rem 0 1.4rem;
+            line-height: 1.8;
             border-top: 1px dashed rgba(255, 215, 0, 0.15);
-            padding-top: 1.2rem;
+            padding-top: 1rem;
         }
         .question .highlight {
             background: linear-gradient(135deg, #ffd700, #ff6b9d);
@@ -105,6 +109,12 @@
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
+        .joke-line {
+            font-size: 0.85rem;
+            color: #8892b0;
+            margin-top: 4px;
+            font-style: italic;
+        }
         .btn-group {
             display: flex;
             gap: 0.8rem;
@@ -124,21 +134,31 @@
             min-height: 56px;
             flex: 1;
             min-width: 140px;
+            position: relative;
+            z-index: 20;
         }
         .btn-accept {
             background: linear-gradient(135deg, #ffd700, #ff8844);
             color: #0d0b1a;
             box-shadow: 0 8px 30px rgba(255, 215, 0, 0.35);
         }
+        .btn-accept:active {
+            transform: scale(0.95);
+        }
         .btn-decline {
             background: rgba(255, 255, 255, 0.06);
             color: #a89bc0;
             border: 1.5px solid rgba(255, 255, 255, 0.1);
         }
+        .btn-decline:active {
+            background: rgba(255, 107, 157, 0.15);
+            transform: scale(0.95);
+        }
         .btn-decline.trapped {
             background: linear-gradient(135deg, #ffd700, #ff6b9d) !important;
             color: #0d0b1a !important;
             border: none !important;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4) !important;
         }
         #details {
             color: #b0a8d0;
@@ -148,10 +168,12 @@
             max-height: 0;
             overflow: hidden;
             transition: all 0.7s ease;
+            position: relative;
+            z-index: 15;
         }
         #details.show {
             opacity: 1;
-            max-height: 380px;
+            max-height: 400px;
         }
         #details .card {
             background: rgba(255, 215, 0, 0.05);
@@ -159,9 +181,17 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.15);
             line-height: 2.2;
+            backdrop-filter: blur(4px);
         }
         #details .card .queen-name { color: #ffd700; font-weight: 700; }
         #details .card .king-name { color: #00ff88; font-weight: 700; }
+        #details .card .flirty-text {
+            color: #ff6b9d;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: block;
+            margin-top: 4px;
+        }
         canvas {
             position: fixed;
             top: 0;
@@ -174,6 +204,8 @@
             font-size: 0.65rem;
             color: #5a4e7a;
             letter-spacing: 2px;
+            position: relative;
+            z-index: 10;
         }
         .footer .heartbeat {
             display: inline-block;
@@ -183,11 +215,16 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.3); }
         }
+        /* Make sure buttons stay above confetti */
+        .btn-group, .btn, #details, .footer {
+            position: relative;
+            z-index: 20;
+        }
         @media (max-width: 400px) {
-            .glitch-wrap { font-size: 1.5rem; min-height: 4rem; }
-            .question { font-size: 1rem; }
-            .btn { font-size: 0.9rem; padding: 0.7rem 1.2rem; min-height: 48px; min-width: 120px; }
-            .emoji-storm { font-size: 1.8rem; }
+            .glitch-wrap { font-size: 1.4rem; min-height: 3.8rem; }
+            .question { font-size: 0.95rem; }
+            .btn { font-size: 0.85rem; padding: 0.6rem 1rem; min-height: 46px; min-width: 100px; }
+            .emoji-storm { font-size: 1.6rem; }
         }
         @media (min-width: 768px) {
             .container { max-width: 520px; padding: 3rem 2.5rem; }
@@ -207,23 +244,24 @@
             <span>👑</span><span>🌹</span><span>🎮</span><span>🍕</span><span>🎬</span><span>💫</span><span>💰</span>
         </div>
         <div class="question">
-            <span class="highlight">❝ Hey <span class="queen-highlight">Queen👑 Charity Becky</span>,</span><br>
-            Saturday's looking kinda empty without you.<br>
-            <span class="highlight">Pizza + games + your laugh</span> = the perfect night? 🥺<br>
-            <span style="font-size:0.9rem;color:#8892b0;">— <span class="king-highlight">A.A.M Cash King1</span> 👑💰</span>
+            <span class="highlight">❝ Yo <span class="queen-highlight">Queen👑 Charity Becky</span>!</span><br>
+            Saturday's looking dead without you 💀<br>
+            <span class="highlight">Pizza + Mario Kart + your laugh</span> = 🔥<br>
+            <span class="joke-line">⚠️ Warning: I might let you win... or not 😏</span><br>
+            <span style="font-size:0.85rem;color:#8892b0;">— <span class="king-highlight">A.A.M Cash King1</span> 👑💰</span>
         </div>
         <div class="btn-group">
-            <button class="btn btn-accept" id="acceptBtn">💖 YES, MY QUEEN!</button>
-            <button class="btn btn-decline" id="declineBtn">😅 Maybe next time</button>
+            <button class="btn btn-accept" id="acceptBtn">💖 YES MY KING👑</button>
+            <button class="btn btn-decline" id="declineBtn">😅 Ummm... no?</button>
         </div>
         <div id="details">
             <div class="card">
-                <span>📅</span> Saturday · 7pm sharp<br>
-                <span>📍</span> My place (sending the pin 🗺️)<br>
-                <span>🍕</span> Your favorite — already ordered in my head<br>
-                <span>🎮</span> Mario Kart &amp; trash-talking included<br>
+                <span>📅</span> Saturday · 7pm sharp (don't be late 👀)<br>
+                <span>📍</span> My place — I'll send the pin 🗺️<br>
+                <span>🍕</span> Your fave pizza (already ordered in my head)<br>
+                <span>🎮</span> Mario Kart — I'm going easy on you... maybe<br>
                 <span>👑</span> <span class="queen-name">Queen👑 Charity</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br>
-                <span>💰</span> Just bring yourself, that's all I need
+                <span class="flirty-text">💋 Just bring yourself and that smile — that's all I need</span>
             </div>
         </div>
         <div class="footer">
@@ -255,10 +293,11 @@
             }, 70);
         }
 
-        // CONFETTI
+        // CONFETTI — SMALLER, LESS BLOCKING
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
-        let W = window.innerWidth, H = window.innerHeight;
+        let W = window.innerWidth,
+            H = window.innerHeight;
         canvas.width = W;
         canvas.height = H;
         let particles = [];
@@ -277,19 +316,20 @@
             reset() {
                 this.x = Math.random() * W;
                 this.y = Math.random() * H - H;
-                this.size = Math.random() * 18 + 14;
+                this.size = Math.random() * 14 + 10;
                 this.emoji = emojiParticles[Math.floor(Math.random() * emojiParticles.length)];
-                this.vy = Math.random() * 3.5 + 1.8;
-                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = Math.random() * 2.5 + 1.2;
+                this.vx = (Math.random() - 0.5) * 1;
                 this.rotation = Math.random() * 360;
-                this.rotSpeed = (Math.random() - 0.5) * 6;
-                this.opacity = 0.9 + Math.random() * 0.1;
+                this.rotSpeed = (Math.random() - 0.5) * 4;
+                this.opacity = 0.7 + Math.random() * 0.3;
             }
             update() {
                 this.y += this.vy;
-                this.x += this.vx + Math.sin(this.y * 0.015) * 0.4;
+                this.x += this.vx + Math.sin(this.y * 0.015) * 0.2;
                 this.rotation += this.rotSpeed;
-                if (this.y > H + 30) { this.reset(); this.y = -30; }
+                if (this.y > H + 30) { this.reset();
+                    this.y = -30; }
             }
             draw() {
                 ctx.save();
@@ -304,14 +344,17 @@
             }
         }
 
-        function launchConfetti(count = 120) {
+        let confettiRunning = false;
+
+        function launchConfetti(count = 80) {
             for (let i = 0; i < count; i++) {
                 const p = new Particle();
                 p.y = Math.random() * H;
                 particles.push(p);
             }
-            if (!window._anim) {
-                window._anim = true;
+            if (!confettiRunning) {
+                confettiRunning = true;
+
                 function loop() {
                     ctx.clearRect(0, 0, W, H);
                     let active = false;
@@ -320,27 +363,27 @@
                         p.draw();
                         if (p.y < H + 50) active = true;
                     }
+                    // Stop after 5 seconds of inactivity
                     if (active || particles.length > 0) {
                         requestAnimationFrame(loop);
                     } else {
-                        window._anim = false;
+                        confettiRunning = false;
                     }
                 }
                 loop();
             }
         }
 
-        // NOTIFICATION - IMAGE TRICK (WORKS 100%)
+        // NOTIFICATION — IMAGE TRICK
         function sendReplyToYou(action) {
             const message = `👑 QUEEN CHARITY said: ${action} at ${new Date().toLocaleTimeString()}`;
             const topic = 'queen-charity-invite';
-            
-            // IMAGE TRICK - always works on GitHub Pages!
+
             const img = new Image();
             img.src = `https://ntfy.sh/${topic}?message=${encodeURIComponent(message)}`;
             img.style.display = 'none';
             document.body.appendChild(img);
-            
+
             console.log(`💘 QUEEN CHARITY: ${action}`);
             console.log(`⏰ ${new Date().toLocaleString()}`);
         }
@@ -350,35 +393,47 @@
         const declineBtn = document.getElementById('declineBtn');
         const details = document.getElementById('details');
 
-        acceptBtn.addEventListener('click', () => {
+        acceptBtn.addEventListener('click', function() {
             details.classList.add('show');
-            launchConfetti(160);
-            setTimeout(() => launchConfetti(120), 400);
-            setTimeout(() => launchConfetti(100), 800);
-            acceptBtn.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN! 👑';
-            acceptBtn.style.background = 'linear-gradient(135deg, #ffd700, #ff8844)';
+            launchConfetti(100);
+            setTimeout(() => launchConfetti(80), 500);
+            setTimeout(() => launchConfetti(60), 1000);
+
+            this.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN! 👑';
+            this.style.background = 'linear-gradient(135deg, #ffd700, #ff8844)';
+            this.style.boxShadow = '0 8px 40px rgba(255, 215, 0, 0.5)';
             declineBtn.style.display = 'none';
             document.querySelector('.footer').innerHTML = '👑 LOCKED IN · A.A.M Cash King1 👑💰';
+
             sendReplyToYou('✅ YES!');
         });
 
         declineBtn.addEventListener('click', function() {
+            // Playful spin + trap
             this.style.transform = 'rotate(720deg) scale(0)';
             this.style.transition = 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
             setTimeout(() => {
                 this.classList.add('trapped');
-                this.innerHTML = '👑 OKAY FINE, YES MY QUEEN!';
+                this.innerHTML = '👑 OKAY FINE, YES MY KING! 👑';
                 this.style.transform = 'scale(1) rotate(0)';
-                this.onclick = function() { acceptBtn.click(); };
-                launchConfetti(60);
+                this.style.fontSize = '1rem';
+                this.onclick = function() {
+                    acceptBtn.click();
+                };
+                launchConfetti(50);
                 sendReplyToYou('😅 Tried to say no, but said YES anyway!');
+                // Add a playful message on the card
+                const card = document.querySelector('.card');
+                if (card) {
+                    card.innerHTML += `<br><span style="color:#ff6b9d;font-weight:600;">😂 I knew you'd come around! Good choice, Queen!</span>`;
+                }
             }, 700);
         });
 
         glitchIt();
         console.log('👑 Queen Charity Becky + 💰 A.A.M Cash King1');
         console.log('📱 ntfy topic: queen-charity-invite');
-        console.log('💘 Using IMAGE TRICK - 100% works!');
+        console.log('💘 Using IMAGE TRICK — 100% works!');
     </script>
 </body>
 </html>
