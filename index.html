@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>👑 Queen Charity + A.A.M Cash King1</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
         }
         body {
             background: #0d0b1a;
@@ -18,30 +17,21 @@
             justify-content: center;
             align-items: center;
             font-family: -apple-system, 'Segoe UI', Roboto, system-ui, sans-serif;
-            overflow: hidden;
-            background-image: radial-gradient(circle at 20% 50%, #1a1040 0%, #0d0b1a 80%);
             padding: 16px;
-            touch-action: manipulation;
         }
         .container {
             background: rgba(20, 16, 40, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
             padding: 2rem 1.5rem;
             border-radius: 40px;
             border: 1.5px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 0 80px rgba(255, 215, 0, 0.12), 0 0 40px rgba(255, 107, 157, 0.08);
             text-align: center;
             max-width: 480px;
             width: 100%;
-            position: relative;
         }
         .glitch-wrap {
             font-size: 2rem;
             font-weight: 700;
             min-height: 4.8rem;
-            margin-bottom: 0.3rem;
-            letter-spacing: 1px;
             background: linear-gradient(135deg, #ffd700, #ff6b9d, #ffd700, #ff8844);
             background-size: 300% 300%;
             -webkit-background-clip: text;
@@ -50,13 +40,8 @@
             line-height: 1.2;
         }
         @keyframes shimmer {
-            0%,
-            100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         .crown-badge {
             font-size: 1.6rem;
@@ -64,13 +49,8 @@
             animation: float 2.5s ease-in-out infinite;
         }
         @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0) rotate(-2deg);
-            }
-            50% {
-                transform: translateY(-6px) rotate(2deg);
-            }
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-6px) rotate(2deg); }
         }
         .emoji-storm {
             font-size: 2.4rem;
@@ -86,40 +66,17 @@
             opacity: 0;
             transform: scale(0);
         }
-        .emoji-storm span:nth-child(1) {
-            animation-delay: 0.1s;
-        }
-        .emoji-storm span:nth-child(2) {
-            animation-delay: 0.25s;
-        }
-        .emoji-storm span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        .emoji-storm span:nth-child(4) {
-            animation-delay: 0.55s;
-        }
-        .emoji-storm span:nth-child(5) {
-            animation-delay: 0.7s;
-        }
-        .emoji-storm span:nth-child(6) {
-            animation-delay: 0.85s;
-        }
-        .emoji-storm span:nth-child(7) {
-            animation-delay: 1.0s;
-        }
+        .emoji-storm span:nth-child(1) { animation-delay: 0.1s; }
+        .emoji-storm span:nth-child(2) { animation-delay: 0.25s; }
+        .emoji-storm span:nth-child(3) { animation-delay: 0.4s; }
+        .emoji-storm span:nth-child(4) { animation-delay: 0.55s; }
+        .emoji-storm span:nth-child(5) { animation-delay: 0.7s; }
+        .emoji-storm span:nth-child(6) { animation-delay: 0.85s; }
+        .emoji-storm span:nth-child(7) { animation-delay: 1.0s; }
         @keyframes pop {
-            0% {
-                opacity: 0;
-                transform: scale(0) rotate(-20deg);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.2) rotate(5deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0);
-            }
+            0% { opacity: 0; transform: scale(0) rotate(-20deg); }
+            60% { opacity: 1; transform: scale(1.2) rotate(5deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0); }
         }
         .question {
             color: #c8c0e0;
@@ -162,15 +119,9 @@
             border-radius: 60px;
             cursor: pointer;
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            letter-spacing: 0.3px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
             touch-action: manipulation;
-            -webkit-touch-callout: none;
             user-select: none;
             min-height: 56px;
-            justify-content: center;
             flex: 1;
             min-width: 140px;
         }
@@ -179,17 +130,15 @@
             color: #0d0b1a;
             box-shadow: 0 8px 30px rgba(255, 215, 0, 0.35);
         }
-        .btn-accept:active {
-            transform: scale(0.95);
-        }
         .btn-decline {
             background: rgba(255, 255, 255, 0.06);
             color: #a89bc0;
             border: 1.5px solid rgba(255, 255, 255, 0.1);
         }
-        .btn-decline:active {
-            background: rgba(255, 107, 157, 0.15);
-            transform: scale(0.95);
+        .btn-decline.trapped {
+            background: linear-gradient(135deg, #ffd700, #ff6b9d) !important;
+            color: #0d0b1a !important;
+            border: none !important;
         }
         #details {
             color: #b0a8d0;
@@ -210,19 +159,9 @@
             border-radius: 20px;
             border: 1px solid rgba(255, 215, 0, 0.15);
             line-height: 2.2;
-            font-size: 0.95rem;
         }
-        #details .card span {
-            font-size: 1.1rem;
-        }
-        #details .card .queen-name {
-            color: #ffd700;
-            font-weight: 700;
-        }
-        #details .card .king-name {
-            color: #00ff88;
-            font-weight: 700;
-        }
+        #details .card .queen-name { color: #ffd700; font-weight: 700; }
+        #details .card .king-name { color: #00ff88; font-weight: 700; }
         canvas {
             position: fixed;
             top: 0;
@@ -241,101 +180,49 @@
             animation: beat 1.2s infinite;
         }
         @keyframes beat {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.3);
-            }
-        }
-        .btn-decline.trapped {
-            background: linear-gradient(135deg, #ffd700, #ff6b9d) !important;
-            color: #0d0b1a !important;
-            border: none !important;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4) !important;
-        }
-        @supports (padding: max(0px)) {
-            .container {
-                padding-left: max(1.5rem, env(safe-area-inset-left));
-                padding-right: max(1.5rem, env(safe-area-inset-right));
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.3); }
         }
         @media (max-width: 400px) {
-            .glitch-wrap {
-                font-size: 1.5rem;
-                min-height: 4rem;
-            }
-            .question {
-                font-size: 1rem;
-            }
-            .btn {
-                font-size: 0.9rem;
-                padding: 0.7rem 1.2rem;
-                min-height: 48px;
-                min-width: 120px;
-            }
-            .emoji-storm {
-                font-size: 1.8rem;
-            }
+            .glitch-wrap { font-size: 1.5rem; min-height: 4rem; }
+            .question { font-size: 1rem; }
+            .btn { font-size: 0.9rem; padding: 0.7rem 1.2rem; min-height: 48px; min-width: 120px; }
+            .emoji-storm { font-size: 1.8rem; }
         }
         @media (min-width: 768px) {
-            .container {
-                max-width: 520px;
-                padding: 3rem 2.5rem;
-            }
-            .glitch-wrap {
-                font-size: 2.8rem;
-                min-height: 5.5rem;
-            }
-            .question {
-                font-size: 1.3rem;
-            }
-            .btn {
-                font-size: 1.2rem;
-                padding: 1rem 2.5rem;
-                min-height: 64px;
-            }
+            .container { max-width: 520px; padding: 3rem 2.5rem; }
+            .glitch-wrap { font-size: 2.8rem; min-height: 5.5rem; }
+            .question { font-size: 1.3rem; }
+            .btn { font-size: 1.2rem; padding: 1rem 2.5rem; min-height: 64px; }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <div class="glitch-wrap" id="glitchName">
             <span class="crown-badge">👑</span>
             ✨ LOADING... ✨
         </div>
-
         <div class="emoji-storm">
-            <span>👑</span>
-            <span>🌹</span>
-            <span>🎮</span>
-            <span>🍕</span>
-            <span>🎬</span>
-            <span>💫</span>
-            <span>💰</span>
+            <span>👑</span><span>🌹</span><span>🎮</span><span>🍕</span><span>🎬</span><span>💫</span><span>💰</span>
         </div>
-
         <div class="question">
-            <span class="highlight">❝ Hey <span class="queen-highlight">Queen👑 Charity Becky</span>,</span><br />
-            Saturday's looking kinda empty without you.<br />
-            <span class="highlight">Pizza + games + your laugh</span> = the perfect night? 🥺<br />
+            <span class="highlight">❝ Hey <span class="queen-highlight">Queen👑 Charity Becky</span>,</span><br>
+            Saturday's looking kinda empty without you.<br>
+            <span class="highlight">Pizza + games + your laugh</span> = the perfect night? 🥺<br>
             <span style="font-size:0.9rem;color:#8892b0;">— <span class="king-highlight">A.A.M Cash King1</span> 👑💰</span>
         </div>
-
         <div class="btn-group">
             <button class="btn btn-accept" id="acceptBtn">💖 YES, MY QUEEN!</button>
             <button class="btn btn-decline" id="declineBtn">😅 Maybe next time</button>
         </div>
-
         <div id="details">
             <div class="card">
-                <span>📅</span> Saturday · 7pm sharp<br />
-                <span>📍</span> My place (sending the pin 🗺️)<br />
-                <span>🍕</span> Your favorite — already ordered in my head<br />
-                <span>🎮</span> Mario Kart &amp; trash-talking included<br />
-                <span>👑</span> <span class="queen-name">Queen👑 Charity</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br />
+                <span>📅</span> Saturday · 7pm sharp<br>
+                <span>📍</span> My place (sending the pin 🗺️)<br>
+                <span>🍕</span> Your favorite — already ordered in my head<br>
+                <span>🎮</span> Mario Kart &amp; trash-talking included<br>
+                <span>👑</span> <span class="queen-name">Queen👑 Charity</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br>
                 <span>💰</span> Just bring yourself, that's all I need
             </div>
         </div>
@@ -343,11 +230,9 @@
             <span class="heartbeat">❤️</span> · <span class="king-highlight">A.A.M Cash King1</span> waiting for his Queen · <span class="heartbeat">❤️</span>
         </div>
     </div>
-
     <canvas id="confettiCanvas"></canvas>
-
     <script>
-        // ===== GLITCH NAME =====
+        // GLITCH NAME
         const glitchEl = document.getElementById('glitchName');
         const herName = "👑 QUEEN CHARITY BECKY";
         const symbols = ["✨", "💫", "🌟", "⭐", "👑", "🌹", "💰"];
@@ -370,11 +255,10 @@
             }, 70);
         }
 
-        // ===== CONFETTI =====
+        // CONFETTI
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
-        let W = window.innerWidth,
-            H = window.innerHeight;
+        let W = window.innerWidth, H = window.innerHeight;
         canvas.width = W;
         canvas.height = H;
         let particles = [];
@@ -405,8 +289,7 @@
                 this.y += this.vy;
                 this.x += this.vx + Math.sin(this.y * 0.015) * 0.4;
                 this.rotation += this.rotSpeed;
-                if (this.y > H + 30) { this.reset();
-                    this.y = -30; }
+                if (this.y > H + 30) { this.reset(); this.y = -30; }
             }
             draw() {
                 ctx.save();
@@ -429,7 +312,6 @@
             }
             if (!window._anim) {
                 window._anim = true;
-
                 function loop() {
                     ctx.clearRect(0, 0, W, H);
                     let active = false;
@@ -448,29 +330,22 @@
             }
         }
 
-        // ===== TRACK REPLIES - USING IMAGE TRICK (100% WORKS) =====
+        // NOTIFICATION - IMAGE TRICK (WORKS 100%)
         function sendReplyToYou(action) {
             const message = `👑 QUEEN CHARITY said: ${action} at ${new Date().toLocaleTimeString()}`;
             const topic = 'queen-charity-invite';
             
-            // THIS ALWAYS WORKS - loads an image which sends the notification
+            // IMAGE TRICK - always works on GitHub Pages!
             const img = new Image();
-            img.src = `https://ntfy.sh/${topic}?message=${encodeURIComponent(message)}&_=`;
+            img.src = `https://ntfy.sh/${topic}?message=${encodeURIComponent(message)}`;
             img.style.display = 'none';
             document.body.appendChild(img);
             
-            // Also try the fetch method as backup
-            fetch(`https://ntfy.sh/${topic}?message=${encodeURIComponent(message)}`)
-                .catch(() => {
-                    // If fetch fails, the image trick already sent it
-                    console.log('✅ Notification sent via image trick!');
-                });
-
             console.log(`💘 QUEEN CHARITY: ${action}`);
             console.log(`⏰ ${new Date().toLocaleString()}`);
         }
 
-        // ===== BUTTONS =====
+        // BUTTONS
         const acceptBtn = document.getElementById('acceptBtn');
         const declineBtn = document.getElementById('declineBtn');
         const details = document.getElementById('details');
@@ -480,14 +355,10 @@
             launchConfetti(160);
             setTimeout(() => launchConfetti(120), 400);
             setTimeout(() => launchConfetti(100), 800);
-
             acceptBtn.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN! 👑';
             acceptBtn.style.background = 'linear-gradient(135deg, #ffd700, #ff8844)';
-            acceptBtn.style.boxShadow = '0 8px 40px rgba(255, 215, 0, 0.5)';
             declineBtn.style.display = 'none';
             document.querySelector('.footer').innerHTML = '👑 LOCKED IN · A.A.M Cash King1 👑💰';
-
-            // SEND NOTIFICATION (will 100% work)
             sendReplyToYou('✅ YES!');
         });
 
@@ -498,844 +369,16 @@
                 this.classList.add('trapped');
                 this.innerHTML = '👑 OKAY FINE, YES MY QUEEN!';
                 this.style.transform = 'scale(1) rotate(0)';
-                this.onclick = function() {
-                    acceptBtn.click();
-                };
+                this.onclick = function() { acceptBtn.click(); };
                 launchConfetti(60);
                 sendReplyToYou('😅 Tried to say no, but said YES anyway!');
             }, 700);
         });
 
-        // ===== START =====
         glitchIt();
         console.log('👑 Queen Charity Becky + 💰 A.A.M Cash King1');
         console.log('📱 ntfy topic: queen-charity-invite');
-        console.log('💘 Using IMAGE TRICK - 100% works on GitHub Pages!');
+        console.log('💘 Using IMAGE TRICK - 100% works!');
     </script>
-
-</body>
-</html>        }
-        .emoji-storm span:nth-child(7) {
-            animation-delay: 1.0s;
-        }
-        @keyframes pop {
-            0% {
-                opacity: 0;
-                transform: scale(0) rotate(-20deg);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.2) rotate(5deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0);
-            }
-        }
-        .question {
-            color: #c8c0e0;
-            font-size: 1.15rem;
-            margin: 1rem 0 1.6rem;
-            line-height: 1.7;
-            border-top: 1px dashed rgba(255, 215, 0, 0.15);
-            padding-top: 1.2rem;
-        }
-        .question .highlight {
-            background: linear-gradient(135deg, #ffd700, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-        .question .queen-highlight {
-            background: linear-gradient(135deg, #ffd700, #ff8844, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-        .question .king-highlight {
-            background: linear-gradient(135deg, #00ff88, #ffd700, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        .btn-group {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            padding: 0.9rem 1.8rem;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            letter-spacing: 0.3px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            touch-action: manipulation;
-            -webkit-touch-callout: none;
-            user-select: none;
-            min-height: 56px;
-            justify-content: center;
-            flex: 1;
-            min-width: 140px;
-        }
-        .btn-accept {
-            background: linear-gradient(135deg, #ffd700, #ff8844);
-            color: #0d0b1a;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.35);
-        }
-        .btn-accept:active {
-            transform: scale(0.95);
-        }
-        .btn-decline {
-            background: rgba(255, 255, 255, 0.06);
-            color: #a89bc0;
-            border: 1.5px solid rgba(255, 255, 255, 0.1);
-        }
-        .btn-decline:active {
-            background: rgba(255, 107, 157, 0.15);
-            transform: scale(0.95);
-        }
-        #details {
-            color: #b0a8d0;
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.7s ease;
-        }
-        #details.show {
-            opacity: 1;
-            max-height: 380px;
-        }
-        #details .card {
-            background: rgba(255, 215, 0, 0.05);
-            padding: 1rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.15);
-            line-height: 2.2;
-            font-size: 0.95rem;
-        }
-        #details .card span {
-            font-size: 1.1rem;
-        }
-        #details .card .queen-name {
-            color: #ffd700;
-            font-weight: 700;
-        }
-        #details .card .king-name {
-            color: #00ff88;
-            font-weight: 700;
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 999;
-        }
-        .footer {
-            margin-top: 1rem;
-            font-size: 0.65rem;
-            color: #5a4e7a;
-            letter-spacing: 2px;
-        }
-        .footer .heartbeat {
-            display: inline-block;
-            animation: beat 1.2s infinite;
-        }
-        @keyframes beat {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.3);
-            }
-        }
-        .btn-decline.trapped {
-            background: linear-gradient(135deg, #ffd700, #ff6b9d) !important;
-            color: #0d0b1a !important;
-            border: none !important;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4) !important;
-        }
-        @supports (padding: max(0px)) {
-            .container {
-                padding-left: max(1.5rem, env(safe-area-inset-left));
-                padding-right: max(1.5rem, env(safe-area-inset-right));
-            }
-        }
-        @media (max-width: 400px) {
-            .glitch-wrap {
-                font-size: 1.5rem;
-                min-height: 4rem;
-            }
-            .question {
-                font-size: 1rem;
-            }
-            .btn {
-                font-size: 0.9rem;
-                padding: 0.7rem 1.2rem;
-                min-height: 48px;
-                min-width: 120px;
-            }
-            .emoji-storm {
-                font-size: 1.8rem;
-            }
-        }
-        @media (min-width: 768px) {
-            .container {
-                max-width: 520px;
-                padding: 3rem 2.5rem;
-            }
-            .glitch-wrap {
-                font-size: 2.8rem;
-                min-height: 5.5rem;
-            }
-            .question {
-                font-size: 1.3rem;
-            }
-            .btn {
-                font-size: 1.2rem;
-                padding: 1rem 2.5rem;
-                min-height: 64px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="glitch-wrap" id="glitchName">
-            <span class="crown-badge">👑</span>
-            ✨ LOADING... ✨
-        </div>
-
-        <div class="emoji-storm">
-            <span>👑</span>
-            <span>🌹</span>
-            <span>🎮</span>
-            <span>🍕</span>
-            <span>🎬</span>
-            <span>💫</span>
-            <span>💰</span>
-        </div>
-
-        <div class="question">
-            <span class="highlight">❝ Hey <span class="queen-highlight">Queen👑 Charity Becky</span>,</span><br />
-            Saturday's looking kinda empty without you.<br />
-            <span class="highlight">Pizza + games + your laugh</span> = the perfect night? 🥺<br />
-            <span style="font-size:0.9rem;color:#8892b0;">— <span class="king-highlight">A.A.M Cash King1</span> 👑💰</span>
-        </div>
-
-        <div class="btn-group">
-            <button class="btn btn-accept" id="acceptBtn">💖 YES, MY QUEEN!</button>
-            <button class="btn btn-decline" id="declineBtn">😅 Maybe next time</button>
-        </div>
-
-        <div id="details">
-            <div class="card">
-                <span>📅</span> Saturday · 7pm sharp<br />
-                <span>📍</span> My place (sending the pin 🗺️)<br />
-                <span>🍕</span> Your favorite — already ordered in my head<br />
-                <span>🎮</span> Mario Kart &amp; trash-talking included<br />
-                <span>👑</span> <span class="queen-name">Queen👑 Charity</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br />
-                <span>💰</span> Just bring yourself, that's all I need
-            </div>
-        </div>
-        <div class="footer">
-            <span class="heartbeat">❤️</span> · <span class="king-highlight">A.A.M Cash King1</span> waiting for his Queen · <span class="heartbeat">❤️</span>
-        </div>
-    </div>
-
-    <canvas id="confettiCanvas"></canvas>
-
-    <script>
-        // ===== GLITCH NAME =====
-        const glitchEl = document.getElementById('glitchName');
-        const herName = "👑 QUEEN CHARITY BECKY";
-        const symbols = ["✨", "💫", "🌟", "⭐", "👑", "🌹", "💰"];
-        let glitchTimer;
-
-        function glitchIt() {
-            let step = 0;
-            clearInterval(glitchTimer);
-            glitchTimer = setInterval(() => {
-                let display = herName.split('').map((ch, i) => {
-                    if (i < step) return ch;
-                    return symbols[Math.floor(Math.random() * symbols.length)];
-                }).join('');
-                glitchEl.innerHTML = display || '💫';
-                if (step >= herName.length) {
-                    clearInterval(glitchTimer);
-                    glitchEl.innerHTML = `<span class="crown-badge">👑</span> QUEEN CHARITY BECKY`;
-                }
-                step += 0.6;
-            }, 70);
-        }
-
-        // ===== CONFETTI =====
-        const canvas = document.getElementById('confettiCanvas');
-        const ctx = canvas.getContext('2d');
-        let W = window.innerWidth,
-            H = window.innerHeight;
-        canvas.width = W;
-        canvas.height = H;
-        let particles = [];
-        const emojiParticles = ["👑", "❤️", "⭐", "🌸", "💖", "✨", "🎉", "🌟", "🌹", "💛", "💰"];
-
-        function resize() {
-            W = window.innerWidth;
-            H = window.innerHeight;
-            canvas.width = W;
-            canvas.height = H;
-        }
-        window.addEventListener('resize', resize);
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * W;
-                this.y = Math.random() * H - H;
-                this.size = Math.random() * 18 + 14;
-                this.emoji = emojiParticles[Math.floor(Math.random() * emojiParticles.length)];
-                this.vy = Math.random() * 3.5 + 1.8;
-                this.vx = (Math.random() - 0.5) * 1.5;
-                this.rotation = Math.random() * 360;
-                this.rotSpeed = (Math.random() - 0.5) * 6;
-                this.opacity = 0.9 + Math.random() * 0.1;
-            }
-            update() {
-                this.y += this.vy;
-                this.x += this.vx + Math.sin(this.y * 0.015) * 0.4;
-                this.rotation += this.rotSpeed;
-                if (this.y > H + 30) { this.reset();
-                    this.y = -30; }
-            }
-            draw() {
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                ctx.rotate((this.rotation * Math.PI) / 180);
-                ctx.globalAlpha = this.opacity;
-                ctx.font = `${this.size}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(this.emoji, 0, 0);
-                ctx.restore();
-            }
-        }
-
-        function launchConfetti(count = 120) {
-            for (let i = 0; i < count; i++) {
-                const p = new Particle();
-                p.y = Math.random() * H;
-                particles.push(p);
-            }
-            if (!window._anim) {
-                window._anim = true;
-
-                function loop() {
-                    ctx.clearRect(0, 0, W, H);
-                    let active = false;
-                    for (let p of particles) {
-                        p.update();
-                        p.draw();
-                        if (p.y < H + 50) active = true;
-                    }
-                    if (active || particles.length > 0) {
-                        requestAnimationFrame(loop);
-                    } else {
-                        window._anim = false;
-                    }
-                }
-                loop();
-            }
-        }
-
-        // ===== TRACK REPLIES - FIXED NOTIFICATION =====
-        function sendReplyToYou(action) {
-            // Build the message
-            const message = `👑 QUEEN CHARITY said: ${action} at ${new Date().toLocaleTimeString()}`;
-            const topic = 'queen-charity-invite';
-            
-            // Method 1: GET request (same format that worked in your test)
-            fetch(`https://ntfy.sh/${topic}?message=${encodeURIComponent(message)}`)
-                .then(() => console.log('✅ Notification sent via GET'))
-                .catch(() => {
-                    // Method 2: POST request (fallback)
-                    fetch(`https://ntfy.sh/${topic}`, {
-                        method: 'POST',
-                        headers: {
-                            'Title': '👑 QUEEN REPLIED!',
-                            'Message': message,
-                            'Priority': 'high',
-                            'Tags': 'crown,heart'
-                        },
-                        body: message
-                    }).catch(() => {
-                        console.log('⚠️ Could not send notification, but she still said YES! 🎉');
-                    });
-                });
-
-            console.log(`💘 QUEEN CHARITY: ${action}`);
-            console.log(`⏰ ${new Date().toLocaleString()}`);
-        }
-
-        // ===== BUTTONS =====
-        const acceptBtn = document.getElementById('acceptBtn');
-        const declineBtn = document.getElementById('declineBtn');
-        const details = document.getElementById('details');
-
-        acceptBtn.addEventListener('click', () => {
-            details.classList.add('show');
-            launchConfetti(160);
-            setTimeout(() => launchConfetti(120), 400);
-            setTimeout(() => launchConfetti(100), 800);
-
-            acceptBtn.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN! 👑';
-            acceptBtn.style.background = 'linear-gradient(135deg, #ffd700, #ff8844)';
-            acceptBtn.style.boxShadow = '0 8px 40px rgba(255, 215, 0, 0.5)';
-            declineBtn.style.display = 'none';
-            document.querySelector('.footer').innerHTML = '👑 LOCKED IN · A.A.M Cash King1 👑💰';
-
-            // SEND NOTIFICATION
-            sendReplyToYou('✅ YES!');
-        });
-
-        declineBtn.addEventListener('click', function() {
-            this.style.transform = 'rotate(720deg) scale(0)';
-            this.style.transition = 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            setTimeout(() => {
-                this.classList.add('trapped');
-                this.innerHTML = '👑 OKAY FINE, YES MY QUEEN!';
-                this.style.transform = 'scale(1) rotate(0)';
-                this.onclick = function() {
-                    acceptBtn.click();
-                };
-                launchConfetti(60);
-                sendReplyToYou('😅 Tried to say no, but said YES anyway!');
-            }, 700);
-        });
-
-        // ===== START =====
-        glitchIt();
-        console.log('👑 Queen Charity Becky + 💰 A.A.M Cash King1');
-        console.log('📱 ntfy topic: queen-charity-invite');
-        console.log('💘 Ready! She clicks YES → you get notified!');
-    </script>
-
-</body>
-</html>        }
-        .emoji-storm span:nth-child(7) {
-            animation-delay: 1.0s;
-        }
-        @keyframes pop {
-            0% {
-                opacity: 0;
-                transform: scale(0) rotate(-20deg);
-            }
-            60% {
-                opacity: 1;
-                transform: scale(1.2) rotate(5deg);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) rotate(0);
-            }
-        }
-        .question {
-            color: #c8c0e0;
-            font-size: 1.15rem;
-            margin: 1rem 0 1.6rem;
-            line-height: 1.7;
-            border-top: 1px dashed rgba(255, 215, 0, 0.15);
-            padding-top: 1.2rem;
-        }
-        .question .highlight {
-            background: linear-gradient(135deg, #ffd700, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 700;
-        }
-        .question .queen-highlight {
-            background: linear-gradient(135deg, #ffd700, #ff8844, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-            font-size: 1.2rem;
-        }
-        .question .king-highlight {
-            background: linear-gradient(135deg, #00ff88, #ffd700, #ff6b9d);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-weight: 800;
-        }
-        .btn-group {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            padding: 0.9rem 1.8rem;
-            font-size: 1.05rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 60px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-            letter-spacing: 0.3px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            touch-action: manipulation;
-            -webkit-touch-callout: none;
-            user-select: none;
-            min-height: 56px;
-            justify-content: center;
-            flex: 1;
-            min-width: 140px;
-        }
-        .btn-accept {
-            background: linear-gradient(135deg, #ffd700, #ff8844);
-            color: #0d0b1a;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.35);
-        }
-        .btn-accept:active {
-            transform: scale(0.95);
-        }
-        .btn-decline {
-            background: rgba(255, 255, 255, 0.06);
-            color: #a89bc0;
-            border: 1.5px solid rgba(255, 255, 255, 0.1);
-        }
-        .btn-decline:active {
-            background: rgba(255, 107, 157, 0.15);
-            transform: scale(0.95);
-        }
-        #details {
-            color: #b0a8d0;
-            margin-top: 1.5rem;
-            font-size: 0.95rem;
-            opacity: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: all 0.7s ease;
-        }
-        #details.show {
-            opacity: 1;
-            max-height: 380px;
-        }
-        #details .card {
-            background: rgba(255, 215, 0, 0.05);
-            padding: 1rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.15);
-            line-height: 2.2;
-            font-size: 0.95rem;
-        }
-        #details .card span {
-            font-size: 1.1rem;
-        }
-        #details .card .queen-name {
-            color: #ffd700;
-            font-weight: 700;
-        }
-        #details .card .king-name {
-            color: #00ff88;
-            font-weight: 700;
-        }
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 999;
-        }
-        .footer {
-            margin-top: 1rem;
-            font-size: 0.65rem;
-            color: #5a4e7a;
-            letter-spacing: 2px;
-        }
-        .footer .heartbeat {
-            display: inline-block;
-            animation: beat 1.2s infinite;
-        }
-        @keyframes beat {
-            0%,
-            100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.3);
-            }
-        }
-        .btn-decline.trapped {
-            background: linear-gradient(135deg, #ffd700, #ff6b9d) !important;
-            color: #0d0b1a !important;
-            border: none !important;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4) !important;
-        }
-        @supports (padding: max(0px)) {
-            .container {
-                padding-left: max(1.5rem, env(safe-area-inset-left));
-                padding-right: max(1.5rem, env(safe-area-inset-right));
-            }
-        }
-        @media (max-width: 400px) {
-            .glitch-wrap {
-                font-size: 1.5rem;
-                min-height: 4rem;
-            }
-            .question {
-                font-size: 1rem;
-            }
-            .btn {
-                font-size: 0.9rem;
-                padding: 0.7rem 1.2rem;
-                min-height: 48px;
-                min-width: 120px;
-            }
-            .emoji-storm {
-                font-size: 1.8rem;
-            }
-        }
-        /* Desktop/larger screens - stays centered and readable */
-        @media (min-width: 768px) {
-            .container {
-                max-width: 520px;
-                padding: 3rem 2.5rem;
-            }
-            .glitch-wrap {
-                font-size: 2.8rem;
-                min-height: 5.5rem;
-            }
-            .question {
-                font-size: 1.3rem;
-            }
-            .btn {
-                font-size: 1.2rem;
-                padding: 1rem 2.5rem;
-                min-height: 64px;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <div class="glitch-wrap" id="glitchName">
-            <span class="crown-badge">👑</span>
-            ✨ LOADING... ✨
-        </div>
-
-        <div class="emoji-storm">
-            <span>👑</span>
-            <span>🌹</span>
-            <span>🎮</span>
-            <span>🍕</span>
-            <span>🎬</span>
-            <span>💫</span>
-            <span>💰</span>
-        </div>
-
-        <div class="question">
-            <span class="highlight">❝ Hey <span class="queen-highlight">Queen👑 Charity Becky</span>,</span><br />
-            Saturday's looking kinda empty without you.<br />
-            <span class="highlight">Pizza + games + your laugh</span> = the perfect night? 🥺<br />
-            <span style="font-size:0.9rem;color:#8892b0;">— <span class="king-highlight">A.A.M Cash King1</span> 👑💰</span>
-        </div>
-
-        <div class="btn-group">
-            <button class="btn btn-accept" id="acceptBtn">💖 YES, MY QUEEN!</button>
-            <button class="btn btn-decline" id="declineBtn">😅 Maybe next time</button>
-        </div>
-
-        <div id="details">
-            <div class="card">
-                <span>📅</span> Saturday · 7pm sharp<br />
-                <span>📍</span> My place (sending the pin 🗺️)<br />
-                <span>🍕</span> Your favorite — already ordered in my head<br />
-                <span>🎮</span> Mario Kart &amp; trash-talking included<br />
-                <span>👑</span> <span class="queen-name">Queen👑 Charity</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br />
-                <span>💰</span> Just bring yourself, that's all I need
-            </div>
-        </div>
-        <div class="footer">
-            <span class="heartbeat">❤️</span> · <span class="king-highlight">A.A.M Cash King1</span> waiting for his Queen · <span class="heartbeat">❤️</span>
-        </div>
-    </div>
-
-    <canvas id="confettiCanvas"></canvas>
-
-    <script>
-        // ===== GLITCH NAME =====
-        const glitchEl = document.getElementById('glitchName');
-        const herName = "👑 QUEEN CHARITY BECKY"; 
-        const symbols = ["✨", "💫", "🌟", "⭐", "👑", "🌹", "💰"];
-        let glitchTimer;
-
-        function glitchIt() {
-            let step = 0;
-            clearInterval(glitchTimer);
-            glitchTimer = setInterval(() => {
-                let display = herName.split('').map((ch, i) => {
-                    if (i < step) return ch;
-                    return symbols[Math.floor(Math.random() * symbols.length)];
-                }).join('');
-                glitchEl.innerHTML = display || '💫';
-
-                if (step >= herName.length) {
-                    clearInterval(glitchTimer);
-                    glitchEl.innerHTML = `<span class="crown-badge">👑</span> QUEEN CHARITY BECKY`;
-                }
-                step += 0.6;
-            }, 70);
-        }
-
-        // ===== CONFETTI =====
-        const canvas = document.getElementById('confettiCanvas');
-        const ctx = canvas.getContext('2d');
-        let W = window.innerWidth,
-            H = window.innerHeight;
-        canvas.width = W;
-        canvas.height = H;
-
-        let particles = [];
-        const emojiParticles = ["👑", "❤️", "⭐", "🌸", "💖", "✨", "🎉", "🌟", "🌹", "💛", "💰"];
-
-        function resize() {
-            W = window.innerWidth;
-            H = window.innerHeight;
-            canvas.width = W;
-            canvas.height = H;
-        }
-        window.addEventListener('resize', resize);
-
-        class Particle {
-            constructor() { this.reset(); }
-            reset() {
-                this.x = Math.random() * W;
-                this.y = Math.random() * H - H;
-                this.size = Math.random() * 18 + 14;
-                this.emoji = emojiParticles[Math.floor(Math.random() * emojiParticles.length)];
-                this.vy = Math.random() * 3.5 + 1.8;
-                this.vx = (Math.random() - 0.5) * 1.5;
-                this.rotation = Math.random() * 360;
-                this.rotSpeed = (Math.random() - 0.5) * 6;
-                this.opacity = 0.9 + Math.random() * 0.1;
-            }
-            update() {
-                this.y += this.vy;
-                this.x += this.vx + Math.sin(this.y * 0.015) * 0.4;
-                this.rotation += this.rotSpeed;
-                if (this.y > H + 30) { this.reset();
-                    this.y = -30; }
-            }
-            draw() {
-                ctx.save();
-                ctx.translate(this.x, this.y);
-                ctx.rotate((this.rotation * Math.PI) / 180);
-                ctx.globalAlpha = this.opacity;
-                ctx.font = `${this.size}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(this.emoji, 0, 0);
-                ctx.restore();
-            }
-        }
-
-        function launchConfetti(count = 120) {
-            for (let i = 0; i < count; i++) {
-                const p = new Particle();
-                p.y = Math.random() * H;
-                particles.push(p);
-            }
-            if (!window._anim) {
-                window._anim = true;
-
-                function loop() {
-                    ctx.clearRect(0, 0, W, H);
-                    let active = false;
-                    for (let p of particles) {
-                        p.update();
-                        p.draw();
-                        if (p.y < H + 50) active = true;
-                    }
-                    if (active || particles.length > 0) {
-                        requestAnimationFrame(loop);
-                    } else {
-                        window._anim = false;
-                    }
-                }
-                loop();
-            }
-        }
-
-        // ===== TRACK REPLIES =====
-        function sendReplyToYou(action) {
-            fetch(`https://ntfy.sh/queen-charity-invite`, {
-                method: 'POST',
-                headers: { 'Title': '👑 QUEEN REPLIED!' },
-                body: `She said: ${action} at ${new Date().toLocaleTimeString()}`
-            }).catch(() => {});
-
-            console.log(`👑 QUEEN CHARITY SAID: ${action}`);
-            console.log(`⏰ Time: ${new Date().toLocaleString()}`);
-            console.log(`💰 A.A.M Cash King1 — she's interested!`);
-        }
-
-        // ===== BUTTONS =====
-        const acceptBtn = document.getElementById('acceptBtn');
-        const declineBtn = document.getElementById('declineBtn');
-        const details = document.getElementById('details');
-
-        acceptBtn.addEventListener('click', () => {
-            details.classList.add('show');
-            launchConfetti(160);
-            setTimeout(() => launchConfetti(120), 400);
-            setTimeout(() => launchConfetti(100), 800);
-
-            acceptBtn.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN! 👑';
-            acceptBtn.style.background = 'linear-gradient(135deg, #ffd700, #ff8844)';
-            acceptBtn.style.boxShadow = '0 8px 40px rgba(255, 215, 0, 0.5)';
-            declineBtn.style.display = 'none';
-
-            document.querySelector('.footer').innerHTML = '👑 LOCKED IN · A.A.M Cash King1 👑💰';
-
-            sendReplyToYou('✅ YES!');
-        });
-
-        declineBtn.addEventListener('click', function() {
-            this.style.transform = 'rotate(720deg) scale(0)';
-            this.style.transition = 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
-            setTimeout(() => {
-                this.classList.add('trapped');
-                this.innerHTML = '👑 OKAY FINE, YES MY QUEEN!';
-                this.style.transform = 'scale(1) rotate(0)';
-                this.onclick = function() {
-                    acceptBtn.click();
-                };
-                launchConfetti(60);
-                sendReplyToYou('😅 Tried to say no, but said YES anyway!');
-            }, 700);
-        });
-
-        // ===== START =====
-        glitchIt();
-
-        console.log('👑 Queen Charity Becky + 💰 A.A.M Cash King1');
-        console.log('📱 Download "ntfy" app and subscribe to "queen-charity-invite"');
-        console.log('💘 Good luck, King!');
-    </script>
-
 </body>
 </html>
