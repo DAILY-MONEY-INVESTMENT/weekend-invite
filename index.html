@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>👑 King + Queen = This Weekend</title>
+    <title>👑 QUEEN SYLVIA — Video Call? 💖</title>
     <style>
         * {
             margin: 0;
@@ -19,13 +19,14 @@
             font-family: -apple-system, 'Segoe UI', Roboto, sans-serif;
             padding: 16px;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 30% 40%, #1a1040 0%, #0d0b1a 80%);
         }
         .container {
             background: rgba(20, 16, 40, 0.92);
             padding: 2rem 1.5rem;
             border-radius: 40px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.1);
+            border: 2px solid rgba(255, 107, 157, 0.4);
+            box-shadow: 0 0 80px rgba(255, 107, 157, 0.15), 0 0 40px rgba(255, 215, 0, 0.05);
             text-align: center;
             max-width: 480px;
             width: 100%;
@@ -36,7 +37,7 @@
             font-size: 2rem;
             font-weight: 700;
             min-height: 4.8rem;
-            background: linear-gradient(135deg, #ffd700, #ff6b9d, #ffd700, #ff8844);
+            background: linear-gradient(135deg, #ff6b9d, #ffd700, #ff6b9d, #ff8844);
             background-size: 300% 300%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -48,19 +49,19 @@
             50% { background-position: 100% 50%; }
         }
         .crown-badge {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             display: block;
             animation: float 2.5s ease-in-out infinite;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-6px) rotate(2deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
         }
         .emoji-storm {
-            font-size: 2rem;
+            font-size: 2.2rem;
             display: flex;
             justify-content: center;
-            gap: 0.4rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
             margin: 0.2rem 0 0.6rem;
         }
@@ -86,8 +87,8 @@
             color: #c8c0e0;
             font-size: 1.1rem;
             margin: 0.8rem 0 1.4rem;
-            line-height: 1.8;
-            border-top: 1px dashed rgba(255, 215, 0, 0.15);
+            line-height: 1.9;
+            border-top: 1px dashed rgba(255, 107, 157, 0.2);
             padding-top: 1rem;
         }
         .question .highlight {
@@ -97,11 +98,11 @@
             font-weight: 700;
         }
         .question .queen-highlight {
-            background: linear-gradient(135deg, #ffd700, #ff8844, #ff6b9d);
+            background: linear-gradient(135deg, #ffd700, #ff6b9d, #ff8844);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
         .question .king-highlight {
             background: linear-gradient(135deg, #00ff88, #ffd700, #ff6b9d);
@@ -112,8 +113,13 @@
         .joke-line {
             font-size: 0.85rem;
             color: #8892b0;
-            margin-top: 4px;
+            margin-top: 6px;
             font-style: italic;
+        }
+        .joke-line .highlight-text {
+            color: #ff6b9d;
+            font-weight: 600;
+            font-style: normal;
         }
         .btn-group {
             display: flex;
@@ -138,9 +144,9 @@
             z-index: 20;
         }
         .btn-accept {
-            background: linear-gradient(135deg, #ffd700, #ff8844);
-            color: #0d0b1a;
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.35);
+            background: linear-gradient(135deg, #ff6b9d, #ff3c7a);
+            color: #fff;
+            box-shadow: 0 8px 30px rgba(255, 107, 157, 0.4);
         }
         .btn-accept:active {
             transform: scale(0.95);
@@ -173,13 +179,13 @@
         }
         #details.show {
             opacity: 1;
-            max-height: 400px;
+            max-height: 450px;
         }
         #details .card {
-            background: rgba(255, 215, 0, 0.05);
+            background: rgba(255, 107, 157, 0.08);
             padding: 1rem;
             border-radius: 20px;
-            border: 1px solid rgba(255, 215, 0, 0.15);
+            border: 1px solid rgba(255, 107, 157, 0.15);
             line-height: 2.2;
             backdrop-filter: blur(4px);
         }
@@ -188,9 +194,14 @@
         #details .card .flirty-text {
             color: #ff6b9d;
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             display: block;
-            margin-top: 4px;
+            margin-top: 6px;
+        }
+        #details .card .call-time {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 1.1rem;
         }
         canvas {
             position: fixed;
@@ -219,11 +230,22 @@
             position: relative;
             z-index: 20;
         }
+        .video-call-icon {
+            font-size: 3.5rem;
+            display: block;
+            margin: 0.2rem 0 0.2rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
         @media (max-width: 400px) {
             .glitch-wrap { font-size: 1.4rem; min-height: 3.8rem; }
             .question { font-size: 0.95rem; }
             .btn { font-size: 0.85rem; padding: 0.6rem 1rem; min-height: 46px; min-width: 100px; }
             .emoji-storm { font-size: 1.6rem; }
+            .video-call-icon { font-size: 2.8rem; }
         }
         @media (min-width: 768px) {
             .container { max-width: 520px; padding: 3rem 2.5rem; }
@@ -240,27 +262,33 @@
             ✨ LOADING... ✨
         </div>
         <div class="emoji-storm">
-            <span>👑</span><span>🌹</span><span>🎮</span><span>🍕</span><span>🎬</span><span>💫</span><span>💰</span>
+            <span>👑</span><span>💖</span><span>📱</span><span>✨</span><span>🎵</span><span>💫</span><span>🌙</span>
         </div>
+        
+        <div class="video-call-icon">📹</div>
+
         <div class="question">
-            <span class="highlight">❝ Yo <span class="queen-highlight">Queen👑 Charity Becky</span>!</span><br>
-            Saturday's looking dead without you 💀<br>
-            <span class="highlight">Pizza + Mario Kart + your laugh</span> = 🔥<br>
-            <span class="joke-line">⚠️ Warning: I might let you win... or not 😏</span><br>
-            <span style="font-size:0.85rem;color:#8892b0;">— <span class="king-highlight">A.A.M Cash King1</span> 👑💰</span>
+            <span class="highlight">❝ Yo <span class="queen-highlight">QUEEN👑 SYLVIA</span>!</span><br>
+            My night's looking <span class="highlight">dead boring</span> without your face 💀<br>
+            <span class="highlight">Your smile + your laugh</span> = my kind of party 🎉<br>
+            <span class="joke-line">⚠️ Warning: I might make you laugh so hard you snort 😂<br>
+            <span class="highlight-text">💬 So... how about a video call tonight?</span></span><br>
+            <span style="font-size:0.85rem;color:#8892b0;margin-top:6px;display:block;">— <span class="king-highlight">A.A.M Cash King1</span> 👑💰</span>
         </div>
+
         <div class="btn-group">
-            <button class="btn btn-accept" id="acceptBtn">💖 YES MY KING👑</button>
-            <button class="btn btn-decline" id="declineBtn">😅 Ummm... no?</button>
+            <button class="btn btn-accept" id="acceptBtn">💖 YES! CALL ME NOW!</button>
+            <button class="btn btn-decline" id="declineBtn">😅 Ummm... maybe?</button>
         </div>
+
         <div id="details">
             <div class="card">
-                <span>📅</span> Saturday · 7pm sharp (don't be late 👀)<br>
-                <span>📍</span> My place — I'll send the pin 🗺️<br>
-                <span>🍕</span> Your fave pizza (already ordered in my head)<br>
-                <span>🎮</span> Mario Kart — I'm going easy on you... maybe<br>
-                <span>👑</span> <span class="queen-name">Queen👑 Charity</span> + <span class="king-name">A.A.M Cash King1</span> = 💛<br>
-                <span class="flirty-text">💋 Just bring yourself and that smile — that's all I need</span>
+                <span>📱</span> <span class="call-time">Video Call — Tonight</span><br>
+                <span>⏰</span> When you're ready — I'll wait for you 💛<br>
+                <span>🎵</span> Playlist: Your favorite songs (I'll sing along... badly 😂)<br>
+                <span>💬</span> Topics: Your day, random stuff, and why you're so amazing<br>
+                <span>👑</span> <span class="queen-name">QUEEN SYLVIA</span> + <span class="king-name">A.A.M Cash King1</span> = 💖<br>
+                <span class="flirty-text">💋 Just tap YES and I'll call you — no pressure, just good vibes and your beautiful smile 🥰</span>
             </div>
         </div>
         <div class="footer">
@@ -273,13 +301,14 @@
         // CONFIGURATION
         // =============================================
         const FORMSPREE_ID = 'mjybzprv';  // Your Formspree ID
-        const HER_NAME = "👑 QUEEN CHARITY BECKY";
+        const HER_NAME = "👑 QUEEN SYLVIA";
+        const YOUR_NAME = "A.A.M Cash King1";
         
         // =============================================
         // GLITCH NAME
         // =============================================
         const glitchEl = document.getElementById('glitchName');
-        const symbols = ["✨", "💫", "🌟", "⭐", "👑", "🌹", "💰"];
+        const symbols = ["✨", "💫", "🌟", "⭐", "👑", "💖", "🌹"];
         let glitchTimer;
 
         function glitchIt() {
@@ -300,7 +329,7 @@
         }
 
         // =============================================
-        // CONFETTI
+        // CONFETTI — hearts and sparkles!
         // =============================================
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
@@ -309,7 +338,7 @@
         canvas.width = W;
         canvas.height = H;
         let particles = [];
-        const emojiParticles = ["👑", "❤️", "⭐", "🌸", "💖", "✨", "🎉", "🌟", "🌹", "💛", "💰"];
+        const emojiParticles = ["💖", "❤️", "✨", "⭐", "🌟", "💫", "🌸", "🌹", "🎉", "💛", "👑"];
 
         function resize() {
             W = window.innerWidth;
@@ -324,10 +353,10 @@
             reset() {
                 this.x = Math.random() * W;
                 this.y = Math.random() * H - H;
-                this.size = Math.random() * 14 + 10;
+                this.size = Math.random() * 16 + 10;
                 this.emoji = emojiParticles[Math.floor(Math.random() * emojiParticles.length)];
-                this.vy = Math.random() * 2.5 + 1.2;
-                this.vx = (Math.random() - 0.5) * 1;
+                this.vy = Math.random() * 2.8 + 1.2;
+                this.vx = (Math.random() - 0.5) * 1.2;
                 this.rotation = Math.random() * 360;
                 this.rotSpeed = (Math.random() - 0.5) * 4;
                 this.opacity = 0.7 + Math.random() * 0.3;
@@ -381,20 +410,18 @@
 
         // =============================================
         // NOTIFICATION — FORMSPREE (EMAIL ALERT)
-        // FIXED: Now sends for BOTH buttons!
         // =============================================
         function sendReplyToYou(action) {
-            const message = `👑 QUEEN CHARITY said: ${action} at ${new Date().toLocaleString()}`;
+            const message = `👑 QUEEN SYLVIA said: ${action} at ${new Date().toLocaleString()}`;
             
             console.log(`📤 Sending: ${message}`);
             
-            // Send email via Formspree
             fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                     message: message,
-                    _subject: '👑 QUEEN REPLIED!'
+                    _subject: '👑 QUEEN SYLVIA REPLIED!'
                 })
             }).then(response => {
                 if (response.ok) {
@@ -416,44 +443,41 @@
 
         acceptBtn.addEventListener('click', function() {
             details.classList.add('show');
-            launchConfetti(100);
-            setTimeout(() => launchConfetti(80), 500);
-            setTimeout(() => launchConfetti(60), 1000);
+            launchConfetti(120);
+            setTimeout(() => launchConfetti(100), 500);
+            setTimeout(() => launchConfetti(80), 1000);
 
-            this.innerHTML = '🎉 SEE YOU SATURDAY, QUEEN! 👑';
-            this.style.background = 'linear-gradient(135deg, #ffd700, #ff8844)';
+            this.innerHTML = '🎉 CAN\'T WAIT TO SEE YOU! 💖';
+            this.style.background = 'linear-gradient(135deg, #ffd700, #ff6b9d)';
             this.style.boxShadow = '0 8px 40px rgba(255, 215, 0, 0.5)';
             declineBtn.style.display = 'none';
-            document.querySelector('.footer').innerHTML = '👑 LOCKED IN · A.A.M Cash King1 👑💰';
+            document.querySelector('.footer').innerHTML = `💖 LOCKED IN · ${YOUR_NAME} 👑💰`;
 
-            // SEND EMAIL
-            sendReplyToYou('✅ YES!');
+            sendReplyToYou('✅ YES! Call me!');
         });
 
         declineBtn.addEventListener('click', function() {
-            // First, send the "No" notification BEFORE the spin
-            sendReplyToYou('😅 Tried to say "No" but got trapped!');
+            sendReplyToYou('😅 Tried to say "maybe" but got trapped!');
             
             this.style.transform = 'rotate(720deg) scale(0)';
             this.style.transition = 'all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)';
             
             setTimeout(() => {
                 this.classList.add('trapped');
-                this.innerHTML = '👑 OKAY FINE, YES MY KING! 👑';
+                this.innerHTML = '💖 OKAY FINE, CALL ME! 💖';
                 this.style.transform = 'scale(1) rotate(0)';
                 this.style.fontSize = '1rem';
                 
-                // When they click the now-"YES" button, send another notification
                 this.onclick = function() {
                     acceptBtn.click();
-                    sendReplyToYou('✅ YES (after trying to say no!)');
+                    sendReplyToYou('✅ YES (after trying to say maybe!)');
                 };
                 
-                launchConfetti(50);
+                launchConfetti(60);
                 
                 const card = document.querySelector('.card');
                 if (card) {
-                    card.innerHTML += `<br><span style="color:#ff6b9d;font-weight:600;">😂 I knew you'd come around! Good choice, Queen!</span>`;
+                    card.innerHTML += `<br><span style="color:#ff6b9d;font-weight:600;">😂 I knew you couldn't resist! Good choice, Queen Sylvia! 💖</span>`;
                 }
             }, 700);
         });
@@ -462,9 +486,9 @@
         // START
         // =============================================
         glitchIt();
-        console.log('👑 Queen Charity Becky + 💰 A.A.M Cash King1');
+        console.log(`👑 QUEEN SYLVIA + 💰 ${YOUR_NAME}`);
         console.log(`📧 Formspree ID: ${FORMSPREE_ID}`);
-        console.log('💘 Ready! Both "Yes" and "No" buttons will send emails!');
+        console.log('💘 Ready! She clicks YES → you get an EMAIL!');
         console.log('📬 Check your inbox (and spam folder!)');
     </script>
 </body>
